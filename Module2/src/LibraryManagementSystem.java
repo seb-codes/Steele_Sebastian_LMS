@@ -174,7 +174,7 @@ public class LibraryManagementSystem {
 
             boolean removed = false;
             for (Book book : bookList) {
-                if (book.getTitle().toLowerCase() == titleToRemove.toLowerCase()) {
+                if (book.getTitle().equals(titleToRemove)) {
                     bookdupeList.add(book);
                     removed = true;
                 }
