@@ -11,7 +11,7 @@ public class LibraryManagementSystem {
        This program manages the books in a library through multiple abilities.
        add books from a list in a text file, remove books by the id, and list all current books in the library
      */
-    private static final List<Book> bookList = new ArrayList<>();
+    static final List<Book> bookList = new ArrayList<>();
     public static void main(String[] args) {
         while (true) {
             System.out.println("Welcome to the Library Management System.\n Select from the options below:");
@@ -44,7 +44,7 @@ public class LibraryManagementSystem {
         }
     }
 
-    private static void addBook(Scanner scanner) {
+    static void addBook(Scanner scanner) {
         /*
         addBook, this method allows you to add a book into your library
         args: Scanner scanner, allows you to scan in values from user
@@ -78,7 +78,7 @@ public class LibraryManagementSystem {
 
     }
 
-    private static void printLibrary(){
+    static void printLibrary(){
 
         if (bookList.isEmpty()) {
             System.out.println("The Library is empty.");
@@ -116,7 +116,7 @@ public class LibraryManagementSystem {
     };
 
 
-    private static void removeBook(Scanner scanner){
+    static void removeBook(Scanner scanner){
        /*
         removeBook, this method allows you to remove a book from your library
         args: Scanner scanner, allows you to scan in values from user
