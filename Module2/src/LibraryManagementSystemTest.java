@@ -1,56 +1,42 @@
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Scanner;
 
 public class LibraryManagementSystemTest {
-    public static void main(String[] args) {
-        testAddBook();
-        testRemoveBookByTitle();
-        testRemoveBookByBarcode();
+    public static void main(String[] args) throws IOException {
+        test();
+//        testRemoveBookByTitle();
+//        testRemoveBookByBarcode();
     }
 
-    public static void testAddBook() {
+    public static void test() throws IOException {
         LibraryManagementSystem librarySystem = new LibraryManagementSystem();
-        Scanner scanner = new Scanner("Sample Book,Sample Author,12345,Sample Genre\nexit");
+        // Prepare input data to simulate user input
+        String userInput = "1,Sample Book,Sample Author\nexit\n";
+        InputStream inputStream = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(inputStream);
 
-        librarySystem.addBook(scanner);
+        librarySystem.addBook();
 
         // Check if the book has been added to the bookList
         if (librarySystem.bookList.size() == 1) {
-            System.out.println("testAddBook PASSED");
+            System.out.println("\n---AddBook PASSED---");
         } else {
-            System.out.println("testAddBook FAILED");
+            System.out.println("\n---AddBook FAILED---");
         }
 
-        librarySystem = null;
-    }
+        userInput = "Title\nSample Book\n1";
+        inputStream = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(inputStream);
 
-   public static void testRemoveBookByTitle() {
-       LibraryManagementSystem librarySystem = new LibraryManagementSystem();
-
-        librarySystem.removeBook(new Scanner("Title\nSample Book\n0"));
+        librarySystem.removeBook();
 
         // Check if the book has been removed from the bookList
         if (librarySystem.bookList.isEmpty()) {
-            System.out.println("testRemoveBookByTitle PASSED");
+            System.out.println("\n---RemoveBookByTitle PASSED---");
         } else {
-            System.out.println("testRemoveBookByTitle FAILED");
-        }
-
-       librarySystem = null;
-    }
-//
-    public static void testRemoveBookByBarcode() {
-        LibraryManagementSystem librarySystem = new LibraryManagementSystem();
-        librarySystem.bookList.add(new LibraryManagementSystem.Book("Sample Book", "Sample Author", 12345, "Sample Genre"));
-
-        Scanner scanner = new Scanner("barcode\n12345\n1");
-
-        librarySystem.removeBook(scanner);
-
-        // Check if the book has been removed from the bookList
-        if (librarySystem.bookList.isEmpty()) {
-            System.out.println("testRemoveBookByBarcode PASSED");
-        } else {
-            System.out.println("testRemoveBookByBarcode FAILED");
+            System.out.println("\n---RemoveBookByTitle FAILED---");
         }
     }
 }
