@@ -4,6 +4,13 @@ import java.time.LocalDate;
 import java.sql.*;
 import java.util.Date;
 
+/**
+ * LibraryManagementSystem --- Allows you to compile collections of books into one system that can be managed by a user,
+ * The user has the ability to add and remove books, check them in and out, upload pre-existing files with library information
+ * and display all books in the library. All actions of this class are executed against a MySQl Database.
+ * @author Sebastian Steele
+ */
+
 public class LibraryManagementSystem {
     /* Sebastian Steele CEN 3024 Sept. 3 2023
        Class: LibraryManagementSystem
@@ -714,6 +721,10 @@ public class LibraryManagementSystem {
         return titles;
     }
 
+    /**
+     * Book --- Creates an instance to hold book information that will be used in the Library System
+     * @author Sebastian Steele
+     */
 
      public static class Book {
         /* Sebastian Steele CEN 3024 Sept. 3 2023

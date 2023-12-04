@@ -7,6 +7,10 @@ import java.io.InputStream;
 import java.util.List;
 import java.io.File;
 
+/**
+ *  LibraryManagementSystemGUI --- this class builds the interface for the Library Management System,
+ * @author Sebastian Steele
+ */
 
 public class LibraryManagementSystemGUI {
     public static void main(String[] args) {

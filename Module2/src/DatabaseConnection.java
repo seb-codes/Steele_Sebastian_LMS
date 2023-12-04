@@ -4,7 +4,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ *  DatabaseConnection --- Create a connection to a MySQL database, and close that connection
+ * @author Sebastian Steele
+ */
 public class DatabaseConnection {
+
     private static final String URL = "jdbc:mysql://localhost:3306/librarymanagementsystems";
     private static final String USER = "root";
     private static final String PASSWORD = "root";
